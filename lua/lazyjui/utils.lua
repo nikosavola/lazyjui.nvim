@@ -5,9 +5,9 @@ local M = {
 }
 
 function M.is_available(cmd)
-	-- Cast/as to remove warnings as we're mutating type inside the func
-	-- we don't return the `cmd` anyway
-	-- local cmd_in = cmd --[[@as string|table]]
+	if cmd == "" then
+		return false
+	end
 
 	if type(cmd) == "string" then
 		cmd = M.string_to_table(cmd)
